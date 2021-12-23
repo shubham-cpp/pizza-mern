@@ -40,7 +40,8 @@ const pizzaSchema = new Schema<Pizza>(
     reviews: [reviewSchema],
     category: {
       type: String,
-      enum: ['neapolitan', 'sicilian', 'detroit', 'greek', 'bagel'],
+      enum: ['neapolitan', 'sicilian', 'detroit', 'greek', 'bagel', 'generic'],
+      default: 'generic',
     },
     imgUrl: String,
   },
