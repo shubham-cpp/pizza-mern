@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import express from 'express';
 import { config } from 'dotenv';
 import { connect, Error } from 'mongoose';
+import { userRouter, pizzaRouter, orderRouter } from './src/routes';
 
 config();
 
@@ -22,6 +23,10 @@ connect(DB_URI)
     app.get('/', (_, res) => {
       res.send('Hello from server');
     });
+
+    app.use('/api/users', userRouter);
+    app.use('/api/pizzas', pizzaRouter);
+    app.use('/api/orders', orderRouter);
 
     app.get('/*', (_, res) => {
       res
