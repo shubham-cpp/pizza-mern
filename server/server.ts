@@ -3,7 +3,9 @@ import morgan from 'morgan';
 import express from 'express';
 import { config } from 'dotenv';
 import { connect, Error } from 'mongoose';
+import * as swaggerUI from 'swagger-ui-express';
 import { userRouter, pizzaRouter, orderRouter } from './src/routes';
+import swaggerOptions from './src/api-info';
 
 config();
 
@@ -27,6 +29,7 @@ connect(DB_URI)
     app.use('/api/users', userRouter);
     app.use('/api/pizzas', pizzaRouter);
     app.use('/api/orders', orderRouter);
+    app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerOptions));
 
     app.get('/*', (_, res) => {
       res
