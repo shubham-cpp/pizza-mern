@@ -1,10 +1,19 @@
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { About, Home, NotFound } from './pages';
 
 const App = function (): ReactElement {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/pizza/:id" />
+        <Route path="/about" element={<About />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
