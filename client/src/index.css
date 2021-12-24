@@ -9,9 +9,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* @apply bg-pizza-bg bg-no-repeat bg-cover; */
+  @apply bg-slate-200;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.link {
+  @apply md:px-1 uppercase hover:text-yellow-200;
 }
