@@ -16,8 +16,8 @@ interface Pizza {
 }
 
 const reviewSchema = new Schema({
-  title: { type: String, required: true },
-  desc: { type: String, required: true },
+  title: { type: String, required: true, min: 3, max: 16 },
+  desc: { type: String, min: 4, max: 255 },
   rating: { type: Number, required: true, min: 1, max: 5 },
   userId: { type: Schema.Types.ObjectId, ref: 'user' },
 });
