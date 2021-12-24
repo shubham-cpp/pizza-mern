@@ -27,6 +27,8 @@
       1,
       { "extensions": [".js", ".jsx", ".tsx", ".ts"] }
     ],
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }
