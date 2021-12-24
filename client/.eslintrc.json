@@ -1,5 +1,6 @@
 {
   "env": {
+    "jest/globals": true,
     "browser": true,
     "es2021": true
   },
@@ -12,7 +13,8 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "jest"],
+
   "settings": {
     "import/resolver": {
       "node": {
@@ -29,6 +31,7 @@
     ],
     "import/extensions": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/no-extraneous-dependencies": "off"
   }
 }
