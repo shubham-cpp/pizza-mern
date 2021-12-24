@@ -7,7 +7,7 @@ const get_all_users = (_: Request, res: Response) => {
   User.find({}, { _id: 1, name: 1, age: 1, email: 1 })
     .then((users) => res.json(users))
     .catch(() =>
-      res.status(404).json({
+      res.status(500).json({
         message: 'Error while fetching all users. Please try Again later',
       })
     );
@@ -83,7 +83,7 @@ const post_login_user = async (req: Request, res: Response) => {
     };
     const user = await User.findOne(
       { phone },
-      { name: 1, email: 1, age: 1, password: 1 }
+      { name: 1, age: 1, password: 1 }
     );
     if (!user) return res.status(405).json(errMsg);
 
